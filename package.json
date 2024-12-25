@@ -6,8 +6,10 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"lint": "eslint -c ./eslint.config.mjs --fix --quiet ./packages",
+		"lint:prettier": "prettier --config ./config/prettier/prettier.config.js --write **/*.{js,json,tsx,css,less,scss,html,md}",
 		"lint:lint-staged": "lint-staged -c ./config/lint-staged/lint-staged.config.js",
 		"commit": "git add . && pnpm lint:lint-staged && git cz",
+		"build:dev": "rimraf dist && rollup --config scripts/rollup/react.config.js --bundleConfigAsCjs",
 		"prepare": "husky"
 	},
 	"keywords": [],
@@ -16,6 +18,7 @@
 	"devDependencies": {
 		"@commitlint/cli": "^19.6.1",
 		"@commitlint/config-conventional": "^19.6.0",
+		"@rollup/plugin-commonjs": "^28.0.2",
 		"@typescript-eslint/eslint-plugin": "^8.18.2",
 		"commitlint": "^19.6.1",
 		"cz-customizable": "^7.4.0",
@@ -26,7 +29,10 @@
 		"husky": "^9.1.7",
 		"lint-staged": "^15.2.11",
 		"prettier": "^3.4.2",
+		"rimraf": "^6.0.1",
 		"rollup": "^4.29.1",
+		"rollup-plugin-generate-package-json": "^3.2.0",
+		"rollup-plugin-typescript2": "^0.36.0",
 		"typescript-eslint": "^8.18.2"
 	},
 	"config": {
