@@ -1,0 +1,39 @@
+{
+	"name": "myreact",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "eslint -c ./eslint.config.mjs --fix --quiet ./packages",
+		"lint:lint-staged": "lint-staged -c ./config/lint-staged/lint-staged.config.js",
+		"commit": "git add . && pnpm lint:lint-staged && git cz",
+		"prepare": "husky"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@commitlint/cli": "^19.6.1",
+		"@commitlint/config-conventional": "^19.6.0",
+		"@typescript-eslint/eslint-plugin": "^8.18.2",
+		"commitlint": "^19.6.1",
+		"cz-customizable": "^7.4.0",
+		"eslint": "^9.17.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-prettier": "^5.2.1",
+		"globals": "^15.14.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.2.11",
+		"prettier": "^3.4.2",
+		"typescript-eslint": "^8.18.2"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-customizable"
+		},
+		"cz-customizable": {
+			"config": "./config/cz-customizable/.cz-config.js"
+		}
+	}
+}
